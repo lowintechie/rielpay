@@ -26,10 +26,5 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "clean": "rm -rf dist"
-  },
-  "dependencies": {
-    "@baraypay/sdk": "0.1.0",
-    "@baraypay/abapayway": "0.1.0",
-    "@baraypay/bakong": "0.1.0"
   }
 }

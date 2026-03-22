@@ -1,10 +1,24 @@
-# BarayPay
+# baraypay
 
-A unified TypeScript SDK for Cambodian payments.
+Unified TypeScript SDK for Cambodian payments.
+
+## About
+
+baraypay is an open-source Node.js + TypeScript SDK that gives developers one clean API for Cambodian payments.
+Instead of handling different provider APIs one by one, you integrate once and plug in providers like ABA PayWay and Bakong KHQR.
+
+It is designed for production backend environments and framework flexibility, with first-class support for:
+- payment creation and verification
+- KHQR generation
+- webhook handling
+- Express and Next.js API integrations
 
 Supported providers:
 - ABA PayWay
 - Bakong KHQR
+
+Repository:
+- https://github.com/lowintechie/baraypay
 
 ## Installation
 
@@ -26,7 +40,7 @@ const baraypay = createBarayPay({
     }),
     bakongKHQR({
       merchantId: process.env.BAKONG_MERCHANT_ID!,
-      merchantName: "BarayPay Demo Merchant"
+      merchantName: "baraypay Demo Merchant"
     })
   ]
 });
@@ -48,13 +62,11 @@ console.log(payment);
 - `generateKHQR()`
 - `webhookHandler()`
 
-## Express Example
+## Framework Examples
 
-See: `examples/express/src/server.ts`
-
-## Next.js API Routes Example
-
-See: `examples/nextjs/pages/api/pay.ts` and `examples/nextjs/pages/api/webhooks/aba.ts`
+- Express: `examples/express/src/server.ts`
+- Next.js API routes: `examples/nextjs/pages/api/pay.ts`
+- Next.js webhook route: `examples/nextjs/pages/api/webhooks/aba.ts`
 
 ## Development
 
@@ -64,6 +76,21 @@ npm run build
 npm test
 ```
 
+## Contributing
+
+Contributions are welcome.
+
+- Guide: [CONTRIBUTING.md](./CONTRIBUTING.md)
+- Please run `npm run build` and `npm test` before opening a PR.
+
+## Advanced (Optional)
+
+If you want separate provider packages, you can use:
+
+- `@baraypay/sdk`
+- `@baraypay/abapayway`
+- `@baraypay/bakong`
+
 ## Roadmap
 
 - More providers (local banks and wallets)
@@ -71,11 +98,3 @@ npm test
 - Idempotency layer
 - Event emitter hooks
 - Optional framework adapters (NestJS/Fastify)
-
-## Advanced (Optional)
-
-If you want separate provider packages, you can also use:
-
-- `@baraypay/sdk`
-- `@baraypay/abapayway`
-- `@baraypay/bakong`
